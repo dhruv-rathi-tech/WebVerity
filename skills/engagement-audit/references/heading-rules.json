@@ -1,0 +1,13 @@
+{
+  "heading_evaluation_rules": {
+    "expected_h1_count_per_page": 1,
+    "max_allowed_h1_count": 2,
+    "disallowed_level_skips": [
+      {"from": 1, "to": 3, "description": "H1 skipped directly to H3"},
+      {"from": 1, "to": 4, "description": "H1 skipped directly to H4"},
+      {"from": 2, "to": 4, "description": "H2 skipped directly to H4"}
+    ],
+    "buried_answer_vertical_offset_px": 2000,
+    "min_interactive_cta_count_commercial": 1
+  }
+}

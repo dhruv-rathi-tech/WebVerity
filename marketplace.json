@@ -1,0 +1,42 @@
+{
+  "name": "webverity",
+  "version": "1.0.0",
+  "description": "WebVerity Agent Skill Marketplace for automated website AI Discoverability, Machine Readability, and On-Site Engagement auditing for Adobe University Hackathon 2026.",
+  "skills": [
+    {
+      "id": "audit-orchestrator",
+      "name": "Audit Orchestrator",
+      "path": "skills/audit-orchestrator",
+      "entrypoint": true,
+      "description": "Master entrypoint skill: coordinates the audit pipeline, schedules domain skills, normalizes findings, computes multi-factor severity, and emits the final audit report."
+    },
+    {
+      "id": "crawl-render-audit",
+      "name": "Crawl & Render Audit",
+      "path": "skills/crawl-render-audit",
+      "entrypoint": false,
+      "description": "Audits robots.txt AI bot exclusions, network transport headers, and client-side JavaScript rendering (CSR) content gaps."
+    },
+    {
+      "id": "structured-data-entity-audit",
+      "name": "Structured Data & Entity Audit",
+      "path": "skills/structured-data-entity-audit",
+      "entrypoint": false,
+      "description": "Validates schema.org JSON-LD syntax, entity disambiguation via sameAs links, and checks for contradictions between structured data and visible text."
+    },
+    {
+      "id": "freshness-corroboration-audit",
+      "name": "Freshness & Corroboration Audit",
+      "path": "skills/freshness-corroboration-audit",
+      "entrypoint": false,
+      "description": "Detects temporal staleness (outdated copyrights, stale modified dates) and cross-page factual contradictions across site pages."
+    },
+    {
+      "id": "engagement-audit",
+      "name": "On-Site Engagement Audit",
+      "path": "skills/engagement-audit",
+      "entrypoint": false,
+      "description": "Audits semantic heading hierarchies, above-the-fold value proposition orientation, buried answer discoverability, and contextual conversion paths."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WebsiteAuditReport",
+  "type": "object",
+  "required": ["site", "audited_at", "summary", "findings"],
+  "properties": {
+    "site": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "The target website domain or URL that was audited."
+    },
+    "audited_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp of when the audit was performed."
+    },
+    "summary": {
+      "type": "object",
+      "required": ["total_findings", "critical", "high", "medium"],
+      "properties": {
+        "total_findings": { "type": "integer", "minimum": 0 },
+        "critical": { "type": "integer", "minimum": 0 },
+        "high": { "type": "integer", "minimum": 0 },
+        "medium": { "type": "integer", "minimum": 0 },
+        "low": { "type": "integer", "minimum": 0 },
+        "info": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "severity", "evidence", "suggested_action"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^F-[0-9]{3,}$",
+            "description": "Unique finding identifier (e.g. F-001)."
+          },
+          "title": {
+            "type": "string",
+            "description": "Concise, descriptive title of the defect or finding."
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "crawlability",
+              "machine_readability",
+              "structured_data",
+              "entity_clarity",
+              "freshness_corroboration",
+              "on_site_engagement"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "high", "medium", "low", "info"]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
+          "observation": {
+            "type": "string",
+            "description": "Direct, factual statement of what was observed during the inspection."
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Specific, verifiable evidence proving the problem (URLs, tokens, diffs, schema lines)."
+          },
+          "root_cause": {
+            "type": "string",
+            "description": "Underlying technical mechanism causing the defect."
+          },
+          "impact": {
+            "type": "string",
+            "description": "Why this finding hurts AI discoverability, citation grounding, or user engagement."
+          },
+          "detection_method": {
+            "type": "string",
+            "enum": ["deterministic", "llm_semantic", "hybrid"]
+          },
+          "affected_urls": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "suggested_action": {
+            "type": "object",
+            "required": ["summary", "priority"],
+            "properties": {
+              "summary": {
+                "type": "string",
+                "description": "Actionable summary of what needs to be changed."
+              },
+              "implementation_details": {
+                "type": "string",
+                "description": "Technical implementation guidance, code snippets, or configuration examples."
+              },
+              "priority": {
+                "type": "string",
+                "enum": ["critical", "high", "medium", "low"]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "proactive_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "opportunity", "suggested_action"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "opportunity": { "type": "string" },
+          "suggested_action": {
+            "type": "object",
+            "required": ["summary", "priority"],
+            "properties": {
+              "summary": { "type": "string" },
+              "priority": { "type": "string", "enum": ["high", "medium", "low"] }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

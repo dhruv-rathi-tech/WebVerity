@@ -1,0 +1,29 @@
+{
+  "archetype_schema_expectations": {
+    "ecommerce_product": {
+      "mandatory_types": ["Product", "Offer"],
+      "recommended_types": ["BreadcrumbList", "Organization", "Brand"],
+      "required_properties": ["name", "price", "priceCurrency", "availability"]
+    },
+    "b2b_saas_pricing": {
+      "mandatory_types": ["SoftwareApplication", "Organization"],
+      "recommended_types": ["FAQPage", "Offer"],
+      "required_properties": ["name", "applicationCategory"]
+    },
+    "local_service": {
+      "mandatory_types": ["LocalBusiness"],
+      "recommended_types": ["PostalAddress", "OpeningHoursSpecification"],
+      "required_properties": ["name", "telephone", "address"]
+    },
+    "article_blog": {
+      "mandatory_types": ["Article"],
+      "recommended_types": ["Author", "Organization"],
+      "required_properties": ["headline", "datePublished", "author"]
+    },
+    "corporate_home": {
+      "mandatory_types": ["Organization", "WebSite"],
+      "recommended_types": ["sameAs"],
+      "required_properties": ["name", "url"]
+    }
+  }
+}

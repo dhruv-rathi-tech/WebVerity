@@ -1,0 +1,8 @@
+{
+  "temporal_evaluation_rules": {
+    "copyright_staleness_threshold_years": 2,
+    "target_page_archetypes_for_copyright": ["homepage", "pricing", "contact", "product"],
+    "date_modified_max_age_days_commercial": 365,
+    "contradiction_entity_types": ["price", "phone_number", "address", "company_name"]
+  }
+}

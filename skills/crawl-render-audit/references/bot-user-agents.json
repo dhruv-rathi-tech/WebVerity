@@ -1,0 +1,42 @@
+{
+  "search_retrieval_bots": [
+    {
+      "user_agent": "PerplexityBot",
+      "operator": "Perplexity AI",
+      "category": "live_retrieval",
+      "impact": "Blocks real-time web retrieval and source citation in Perplexity AI answers."
+    },
+    {
+      "user_agent": "ChatGPT-User",
+      "operator": "OpenAI",
+      "category": "live_retrieval",
+      "impact": "Blocks real-time browsing queries initiated by ChatGPT users."
+    },
+    {
+      "user_agent": "Bingbot",
+      "operator": "Microsoft",
+      "category": "search_and_grounding",
+      "impact": "Impairs grounding in Microsoft Copilot and Bing search."
+    }
+  ],
+  "training_ingestion_bots": [
+    {
+      "user_agent": "GPTBot",
+      "operator": "OpenAI",
+      "category": "model_pretraining",
+      "impact": "Excludes brand web corpus from future OpenAI foundational model training weights."
+    },
+    {
+      "user_agent": "ClaudeBot",
+      "operator": "Anthropic",
+      "category": "model_pretraining",
+      "impact": "Excludes brand knowledge from Anthropic Claude model training datasets."
+    },
+    {
+      "user_agent": "Google-Extended",
+      "operator": "Google",
+      "category": "model_pretraining",
+      "impact": "Restricts Google Gemini and Vertex AI foundational training ingestion."
+    }
+  ]
+}
