@@ -1,7 +1,18 @@
 import { AuditReport, AuditRequestOptions } from '../types/audit';
 import { DEMO_AUDIT_ECOMMERCE, DEMO_AUDIT_HEALTHY } from '../mock/demoData';
 
-const API_BASE = '/api';
+const getApiBase = (): string => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl) {
+    return `${envUrl.replace(/\/$/, '')}/api`;
+  }
+  if (import.meta.env.PROD && typeof window !== 'undefined' && !window.location.hostname.includes('onrender.com')) {
+    return 'https://webverity.onrender.com/api';
+  }
+  return '/api';
+};
+
+const API_BASE = getApiBase();
 
 export class AuditApiError extends Error {
   constructor(message: string, public status?: number) {

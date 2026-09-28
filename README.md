@@ -7,8 +7,23 @@
 
 ---
 
+## 🌐 Live Deployments
+
+| Component | Platform | URL | Status |
+| :--- | :--- | :--- | :---: |
+| **Interactive Workbench UI** | **Vercel** | [**webverity.vercel.app**](https://webverity.vercel.app/) | [![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)](https://webverity.vercel.app/) |
+| **REST API Backend** | **Render** | [**webverity.onrender.com**](https://webverity.onrender.com) | [![Render](https://img.shields.io/badge/API-Render-46E3B7?logo=render)](https://webverity.onrender.com) |
+| **Interactive API Docs (Swagger)** | **Render** | [**webverity.onrender.com/api/docs**](https://webverity.onrender.com/api/docs) | `OpenAPI 3.1` |
+| **Health Check Endpoint** | **Render** | [**webverity.onrender.com/api/health**](https://webverity.onrender.com/api/health) | `JSON` |
+
+> [!NOTE]  
+> The backend is hosted on Render's free tier, which sleeps after inactivity. If the first live request takes ~30 seconds to wake up, the frontend UI provides instant **"Load E-Commerce Sample"** and **"Load Healthy Sample"** buttons for immediate, zero-latency evaluation.
+
+---
+
 ## Table of Contents
 
+- [Live Deployments](#-live-deployments)
 - [Overview & Problem Statement](#overview--problem-statement)
 - [The WebVerity Solution](#the-webverity-solution)
 - [Investigation Workflow](#investigation-workflow)
